@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Puntos de Equipos</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<h1>Registro de Puntos de Equipos</h1>
+
+<div>
+    <label for="discipline">Disciplina:</label>
+    <select id="discipline">
+        <option value="handball">Handball</option>
+        <option value="resistencia">Resistencia</option>
+        <option value="ajedrez">Ajedrez</option>
+    </select>
+    <label for="team">Equipo:</label>
+    <select id="team">
+        <option value="A">Equipo A</option>
+        <option value="B">Equipo B</option>
+    </select>
+    <label for="points">Puntos:</label>
+    <input type="number" id="points" min="0" />
+    <button id="register">Registrar Puntos</button>
+</div>
+
+<h2>Puntos Registrados</h2>
+<table id="pointsTable">
+    <thead>
+        <tr>
+            <th>Disciplina</th>
+            <th>Equipo A</th>
+            <th>Equipo B</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Handball</td>
+            <td id="handballA">0</td>
+            <td id="handballB">0</td>
+        </tr>
+        <tr>
+            <td>Resistencia</td>
+            <td id="resistenciaA">0</td>
+            <td id="resistenciaB">0</td>
+        </tr>
+        <tr>
+            <td>Ajedrez</td>
+            <td id="ajedrezA">0</td>
+            <td id="ajedrezB">0</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Resultados</h2>
+<p id="totalPoints"></p>
+<p id="highestDiscipline"></p>
+
+<script src="script.js"></script>
+</body>
+</html>
