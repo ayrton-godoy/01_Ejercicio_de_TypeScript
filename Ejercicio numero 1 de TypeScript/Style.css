@@ -1,8 +1,7 @@
-
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #fefefe;
-    color: #333;
+    background-color: #f2f2f2; /* Gris claro */
+    color: #2d2d2d; /* Negro suave */
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,7 +12,7 @@ body {
 }
 
 h1 {
-    color: #8e44ad; 
+    color: #e74c3c; /* Rojo */
     font-size: 2.5rem;
     margin-bottom: 20px;
     text-align: center;
@@ -21,13 +20,13 @@ h1 {
 
 label {
     font-size: 1.1rem;
-    color: #34495e;
+    color: #2c3e50; /* Negro oscuro */
 }
 
 select, input {
     padding: 10px;
     margin: 10px;
-    border: 2px solid #bdc3c7;
+    border: 2px solid #7f8c8d; /* Gris */
     border-radius: 5px;
     font-size: 1rem;
     width: 150px;
@@ -35,12 +34,12 @@ select, input {
 }
 
 select:focus, input:focus {
-    border-color: #e67e22; 
+    border-color: #e74c3c; /* Rojo */
     outline: none;
 }
 
 button {
-    background-color: #e67e22; 
+    background-color: #e74c3c; /* Rojo */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -52,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #d35400; 
+    background-color: #c0392b; /* Rojo oscuro */
 }
 
 table {
@@ -60,7 +59,7 @@ table {
     margin-top: 20px;
     border-collapse: collapse;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    background-color: #ffffff; /* Blanco */
 }
 
 th, td {
@@ -71,30 +70,24 @@ th, td {
 }
 
 th {
-    background-color: #8e44ad; 
+    background-color: #2d2d2d; /* Negro */
     color: white;
 }
 
 td {
-    background-color: #ecf0f1; 
+    background-color: #f9f9f9; /* Gris claro */
 }
 
 p {
     font-size: 1.2rem;
-    color: #2980b9; 
+    color: #e74c3c; /* Rojo */
     margin-top: 10px;
 }
 
-#totalPoints, #highestDiscipline {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
 #totalPoints {
-    color: #e74c3c; 
+    color: #e74c3c; /* Rojo */
 }
 
 #highestDiscipline {
-    color: #8e44ad; 
+    color: #2d2d2d; /* Negro */
 }
-
