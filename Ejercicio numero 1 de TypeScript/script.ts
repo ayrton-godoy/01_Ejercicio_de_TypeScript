@@ -1,55 +1,62 @@
 interface Points {
-    [discipline: string]: {
-        A: number;
-        B: number;
-    };
+    A: number;
+    B: number;
 }
 
-const Points: Points = {
+const points: Record<string, Points> = {
     handball: { A: 0, B: 0 },
     resistencia: { A: 0, B: 0 },
     ajedrez: { A: 0, B: 0 }
 };
 
-document.getElementById('register')!.addEventListener('click', () => {
-    const discipline = ((document.getElementById('discipline') as HTMLSelectElement).value, 10);
+document.getElementById('register')?.addEventListener('click', function () {
+    const discipline = (document.getElementById('discipline') as HTMLSelectElement).value;
     const team = (document.getElementById('team') as HTMLSelectElement).value;
-    const pointsInput = parseInt((document.getElementById('points') as HTMLInputElement).value, 10);
+    const pointsInput = parseInt((document.getElementById('points') as HTMLInputElement).value);
 
     if (!isNaN(pointsInput) && pointsInput >= 0) {
-        Points[discipline][team] += pointsInput;
-        (document.getElementById(`${discipline}${team}`) as HTMLElement).innerText = Points[discipline][team].toString();
-
-        subiresultados();
+        points[discipline][team] += pointsInput;
+        
+        const teamPointsElement = document.getElementById(`${discipline}${team}`);
+        if (teamPointsElement) {
+            teamPointsElement.innerText = points[discipline][team].toString();
+        }
+        
+        updateResults();
     } else {
         alert("Por favor, introduce un número de puntos válido.");
     }
 });
 
-function subiresultados() {
+function updateResults() {
     let totalA = 0;
     let totalB = 0;
     let highestPoints = 0;
     let highestDiscipline = '';
 
-    for (const discipline in Points) {
-        totalA += Points[discipline].A;
-        totalB += Points[discipline].B;
+    for (const discipline in points) {
+        totalA += points[discipline].A;
+        totalB += points[discipline].B;
 
-        if (Points[discipline].A > highestPoints) {
-            highestPoints = Points[discipline].A;
+        if (points[discipline].A > highestPoints) {
+            highestPoints = points[discipline].A;
             highestDiscipline = `Equipo A en ${discipline}`;
         }
-        if (Points[discipline].B > highestPoints) {
-            highestPoints = Points[discipline].B;
+        
+        if (points[discipline].B > highestPoints) {
+            highestPoints = points[discipline].B;
             highestDiscipline = `Equipo B en ${discipline}`;
         }
     }
 
+    const totalPointsElement = document.getElementById('totalPoints');
+    const highestDisciplineElement = document.getElementById('highestDiscipline');
     
-    console.log(`Total puntos Equipo A: ${totalA}`);
-    console.log(`Total puntos Equipo B: ${totalB}`);
-
-
-
+    if (totalPointsElement) {
+        totalPointsElement.innerText = `Total Equipo A: ${totalA} - Total Equipo B: ${totalB}`;
+    }
+    
+    if (highestDisciplineElement) {
+        highestDisciplineElement.innerText = `Mayor puntuación individual: ${highestDiscipline} con ${highestPoints} puntos.`;
+    }
 }

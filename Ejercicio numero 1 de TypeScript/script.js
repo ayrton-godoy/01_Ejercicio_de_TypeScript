@@ -1,15 +1,19 @@
+var _a;
 var points = {
     handball: { A: 0, B: 0 },
     resistencia: { A: 0, B: 0 },
     ajedrez: { A: 0, B: 0 }
 };
-document.getElementById('register').addEventListener('click', function () {
+(_a = document.getElementById('register')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', function () {
     var discipline = document.getElementById('discipline').value;
     var team = document.getElementById('team').value;
     var pointsInput = parseInt(document.getElementById('points').value);
     if (!isNaN(pointsInput) && pointsInput >= 0) {
         points[discipline][team] += pointsInput;
-        document.getElementById("".concat(discipline).concat(team)).innerText = points[discipline][team].toString();
+        var teamPointsElement = document.getElementById("".concat(discipline).concat(team));
+        if (teamPointsElement) {
+            teamPointsElement.innerText = points[discipline][team].toString();
+        }
         updateResults();
     }
     else {
@@ -33,6 +37,12 @@ function updateResults() {
             highestDiscipline = "Equipo B en ".concat(discipline);
         }
     }
-    document.getElementById('totalPoints').innerText = "Total Equipo A: ".concat(totalA, " - Total Equipo B: ").concat(totalB);
-    document.getElementById('highestDiscipline').innerText = "Mayor puntuaci\u00F3n individual: ".concat(highestDiscipline, " con ").concat(highestPoints, " puntos.");
+    var totalPointsElement = document.getElementById('totalPoints');
+    var highestDisciplineElement = document.getElementById('highestDiscipline');
+    if (totalPointsElement) {
+        totalPointsElement.innerText = "Total Equipo A: ".concat(totalA, " - Total Equipo B: ").concat(totalB);
+    }
+    if (highestDisciplineElement) {
+        highestDisciplineElement.innerText = "Mayor puntuaci\u00F3n individual: ".concat(highestDiscipline, " con ").concat(highestPoints, " puntos.");
+    }
 }
